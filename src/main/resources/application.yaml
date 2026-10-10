@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: workflow-api
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/workflow
+    username: workflow
+    password: workflow_dev
+    driver-class-name: org.postgresql.Driver
+
+flowable:
+  database-schema-update: true
+  async-executor-activate: false
+
+server:
+  port: 8080
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+
+  swagger-ui:
+    path: /swagger-ui.html
+    operations-sorter: method
+    tags-sorter: alpha

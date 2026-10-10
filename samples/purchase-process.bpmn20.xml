@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions
+        xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:flowable="http://flowable.org/bpmn"
+        targetNamespace="urn:miky-flow:compras">
+
+    <process
+            id="purchaseProcess"
+            name="Proceso de compras"
+            isExecutable="true">
+
+        <startEvent id="start" name="Inicio" />
+
+        <userTask
+                id="approvePurchase"
+                name="Aprobar compra"
+                flowable:candidateUsers="${candidateUsers}" />
+
+        <endEvent id="end" name="Fin" />
+
+        <sequenceFlow
+                id="flow1"
+                sourceRef="start"
+                targetRef="approvePurchase" />
+
+        <sequenceFlow
+                id="flow2"
+                sourceRef="approvePurchase"
+                targetRef="end" />
+
+    </process>
+</definitions>
